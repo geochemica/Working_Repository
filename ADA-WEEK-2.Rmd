@@ -52,3 +52,51 @@ x<-m[c(6,7,8),]
 x
 x<-m[c(2:6),c(2:9)]
 x
+
+a<-array(data=1:400, dim=(5,5,4,4))
+a
+#Haven't figured out how to make descending. The rest of the excercise is done with array "a" in it's current form."
+a[1, 1, 1, 2]
+a[2, 3, 2, ]
+a[1:5, 1:5, 3, 3]
+
+#How should the list of primates be set up? From primates to the genus/species or just each word?#
+
+list1<-c("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", "Cebidae")
+list1
+list2<-c("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", "Atelidae")
+list2
+list3<-c("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", "Pitheciidae")
+list3
+list4<-c("Primates", "Haplorhini", "Anthropoidea", "Catarrhini", "Cercopithecidae")
+list4
+list5<-c("Primates", "Haplorhini", "Anthropoidea", "Catarrhini", "Hylobatidae")
+list5
+list6<-c("Primates", "Haplorhini", "Anthropoidea", "Catarrhini", "Hominidae")
+list6
+list7<-c("Primates", "Haplorhini", "Tarsioidea", "Tarsiidae")
+list7
+list8<-c("Primates", "Strepsirhini", "Lorisoidea", "Lorisoidea")
+list8
+list9<-c("Primates", "Strepsirhini", "Lorisoidea", "Galagidae")
+list9
+list10<-c("Primates", "Strepsirhini", "Lemuroidea", "Cheirogaleidae")
+list10
+list11<-c("Primates", "Strepsirhini", "Lemuroidea", "Lepilemuridae")
+list11
+list12<-c("Primates", "Strepsirhini", "Lemuroidea", "Indriidae")
+list12
+list13<-c("Primates", "Strepsirhini", "Lemuroidea", "Lemuridae")
+list13
+list14<-c("Primates", "Strepsirhini", "Lemuroidea", "Daubentoniidae")
+list14
+
+l<-list(list1,list2,list3,list4,list5,list6,list7,list8,list9,list10,list11,list12,list13,list14)
+l
+
+
+g<-matrix(data=c(3,0,1,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=5, ncol=3, byrow=TRUE)
+g
+g<-as.data.frame(g)
+g
+
