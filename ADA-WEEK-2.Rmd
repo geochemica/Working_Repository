@@ -26,3 +26,15 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+WEEK 4
+v1 <- c("Stately", ",", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", ",", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed", ".")
+v1
+?str_split()
+str_split(string, pattern, n = Inf, simplify = FALSE)
+
+install.packages("stringr", lib="//Rpackages/")
+library(ggplot2, lib.loc="/data/Rpackages/")
