@@ -28,13 +28,27 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 
+Week 3
+#I could not get the SSH to work. Will this be an issue throughout the rest of the course?#
+
 
 
 WEEK 4
+#The link https://github.com/fuzzyatelin/AN597_Fall17/ does not bring anything up so could not download the random-people.csv file*
+
+
+
 v1 <- c("Stately", ",", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", ",", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed", ".")
 v1
-?str_split()
-str_split(string, pattern, n = Inf, simplify = FALSE)
+str_split(v1,"_")
+#This splits up v1 into 25 elements#
+#Haven't yet figured out how to extract elements, will return to this portion of the challenge later#
 
-install.packages("stringr", lib="//Rpackages/")
-library(ggplot2, lib.loc="/data/Rpackages/")
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m
+x<-m[,c(2,3,6)]
+x
+x<-m[c(6,7,8),]
+x
+x<-m[c(2:6),c(2:9)]
+x
