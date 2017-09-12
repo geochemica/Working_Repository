@@ -40,9 +40,10 @@ WEEK 4
 
 v1 <- c("Stately", ",", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", ",", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed", ".")
 v1
+require(stringr)
 str_split(v1,"_")
 #This splits up v1 into 25 elements#
-#Haven't yet figured out how to extract elements, will return to this portion of the challenge later#
+v1[seq(from=1,to=25,by=3)]
 
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 m
@@ -53,9 +54,9 @@ x
 x<-m[c(2:6),c(2:9)]
 x
 
-a<-array(data=1:400, dim=(5,5,4,4))
+a<-array(data=400:1,dim=c(5,5,4,4))
 a
-#Haven't figured out how to make descending. The rest of the excercise is done with array "a" in it's current form."
+
 a[1, 1, 1, 2]
 a[2, 3, 2, ]
 a[1:5, 1:5, 3, 3]
