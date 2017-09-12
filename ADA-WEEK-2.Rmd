@@ -92,11 +92,15 @@ list14<-c("Primates", "Strepsirhini", "Lemuroidea", "Daubentoniidae")
 list14
 
 l<-list(list1,list2,list3,list4,list5,list6,list7,list8,list9,list10,list11,list12,list13,list14)
-l
+
 
 
 g<-matrix(data=c(3,0,1,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=5, ncol=3, byrow=TRUE)
 g
 g<-as.data.frame(g)
 g
-
+g[,v2]<-as.logical(g[,v2])
+#This doesn't work but I think that if I change it a little bit and it will work#
+g[,v3]<-as.factor(g[,v3])
+#Again this doesn't work but it's on its way, I think#
+str(g)
