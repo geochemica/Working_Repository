@@ -39,11 +39,17 @@ WEEK 4
 
 
 v1 <- c("Stately", ",", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead", ",", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a", "razor", "lay", "crossed", ".")
+v1<-Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.”
 v1
 require(stringr)
-str_split(v1,"_")
-#This splits up v1 into 25 elements#
-v1[seq(from=1,to=25,by=3)]
+v2<-str_split(v1,"_")
+v2
+#This splits up v2 into 25 elements#
+unlist(v2)
+#takes the list made from string split and makes into a list#
+gsub("[[:punct:]]","",v2)
+#this removes the punctuation
+v2[seq(from=1,to=22,by=3)]
 
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 m
