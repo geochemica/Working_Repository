@@ -104,3 +104,6 @@ g[,v2]<-as.logical(g[,v2])
 g[,v3]<-as.factor(g[,v3])
 #Again this doesn't work but it's on its way, I think#
 str(g)
+
+Module 5
+
