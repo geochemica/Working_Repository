@@ -61,56 +61,59 @@ x<-m[c(2:6),c(2:9)]
 x
 
 a<-array(data=400:1,dim=c(5,5,4,4))
+#If the dim=c portion is not in, the array will only go assending even if it is set up from 400 to 1#
 a
 
 a[1, 1, 1, 2]
 a[2, 3, 2, ]
 a[1:5, 1:5, 3, 3]
 
-#How should the list of primates be set up? From primates to the genus/species or just each word?#
 
-list1<-c("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", "Cebidae")
-list1
-list2<-c("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", "Atelidae")
-list2
-list3<-c("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", "Pitheciidae")
-list3
-list4<-c("Primates", "Haplorhini", "Anthropoidea", "Catarrhini", "Cercopithecidae")
-list4
-list5<-c("Primates", "Haplorhini", "Anthropoidea", "Catarrhini", "Hylobatidae")
-list5
-list6<-c("Primates", "Haplorhini", "Anthropoidea", "Catarrhini", "Hominidae")
-list6
-list7<-c("Primates", "Haplorhini", "Tarsioidea", "Tarsiidae")
-list7
-list8<-c("Primates", "Strepsirhini", "Lorisoidea", "Lorisoidea")
-list8
-list9<-c("Primates", "Strepsirhini", "Lorisoidea", "Galagidae")
-list9
-list10<-c("Primates", "Strepsirhini", "Lemuroidea", "Cheirogaleidae")
-list10
-list11<-c("Primates", "Strepsirhini", "Lemuroidea", "Lepilemuridae")
-list11
-list12<-c("Primates", "Strepsirhini", "Lemuroidea", "Indriidae")
-list12
-list13<-c("Primates", "Strepsirhini", "Lemuroidea", "Lemuridae")
-list13
-list14<-c("Primates", "Strepsirhini", "Lemuroidea", "Daubentoniidae")
-list14
+Platyrrhini<-list("Cebidae", "Atelidae", "Pitheciidae")
+Platyrrhini
 
-l<-list(list1,list2,list3,list4,list5,list6,list7,list8,list9,list10,list11,list12,list13,list14)
+Catarrhini<-list("Cercopithecidae", "Hylobatidae","Hominidae")
+Catarrhini
 
+Anthropoidea<-c(Platyrrhini,Catarrhini)
+Anthropoidea
+names(Anthropoidea)<-c("Platyrrhini", "Cattarrhini")
+#Have to use this function to name the lists#
+Anthropoidea
+
+Tarsioidea<-list("Tarsiidae")
+Tarsioidea
+
+Haplorhini<-list(Anthropoidea,Tarsioidea)
+Haplorhini
+names(Haplorhini)<-c("Anthropoidea", "Tarsioidea")
+Haplorhini
+
+Lorisoidea<-list("Lorisidae", "Galagidae")
+Lorisoidea
+Lemuroidea<-list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+Lemuroidea
+
+Strepsirhini<-list(Lorisoidea, Lemuroidea)
+Strepsirhini
+names(Strepsirhini)<-list("Lorisoidea","Lemuroidea")
+Strepsirhini
+
+Primates<-list(Haplorhini,Strepsirhini)
+Primates
+names(Primates)<-list("Haplorhini", "Strepsirhini")
+Primates
 
 
 g<-matrix(data=c(3,0,1,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=5, ncol=3, byrow=TRUE)
 g
 g<-as.data.frame(g)
 g
-g[,v2]<-as.logical(g[,v2])
-#This doesn't work but I think that if I change it a little bit and it will work#
-g[,v3]<-as.factor(g[,v3])
-#Again this doesn't work but it's on its way, I think#
+g[,2]<-as.logical(g[,2])
+#dont' use v2 as the name of the column, use 2#
+g
+g[,3]<-as.factor(g[,3])
+g
 str(g)
 
-Module 5
 
