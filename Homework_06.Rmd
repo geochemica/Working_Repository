@@ -1,0 +1,143 @@
+---
+title: "Homework_06"
+author: "Arora"
+date: "October 19, 2017"
+output: html_document
+---
+###Part One: One and Two Sized Z Test for Proportion Data
+
+```{r, eval=FALSE}
+Z.prop.test <- function(p1, n1, p0, p2, n2, alternative = "two.tailed", conf.level = 0.975, k=10) 
+    p<-rep(NA, k)
+    for (i in 1:k){
+      p1
+      n1<-n
+      p0
+      conf.level<-0.975
+      p2<-NULL
+      n2<-NULL
+      alpha=0.05
+      Z <- p2-p1/(sqrt((p0)*(1-p0)*((1/n1)+(1/n2))))
+      alternative<-"two tailed"
+
+    if (alternative == "less") {
+            P<-p[i] <- pnorm(z, lower.tail = TRUE)  # calculates the associated p value
+            hyp <- "p1 < p0"
+        }
+        if (alternative == "greater") {
+            P<-p[i] <- pnorm(z, lower.tail = FALSE)
+            hyp <- "p1 > p0"
+        }
+        if (alternative == "two.tailed") {
+            if (z > 0) {
+                P<-p[i] <- 2 * pnorm(z, lower.tail = FALSE)
+            }
+            if (z < 0) {
+                P<-p[i] <- 2 * pnorm(z, lower.tail = TRUE)
+            }
+      
+    if (p2 == is.NULL) {
+      Z=(p1-p0)/sqrt((p0*(1-p0))/n1)
+    }
+     if (alternative == "less") {
+            P<-p[i] <- pnorm(z, lower.tail = TRUE)  # calculates the associated p value
+            hyp <- "p1 < p0"
+        }
+        if (alternative == "greater") {
+            P<-p[i] <- pnorm(z, lower.tail = FALSE)
+            hyp <- "p1 > p0"
+        }
+        if (alternative == "two.tailed") {
+            if (z > 0) {
+                P<-p[i] <- 2 * pnorm(z, lower.tail = FALSE)
+            }
+            if (z < 0) {
+                P<-p[i] <- 2 * pnorm(z, lower.tail = TRUE)
+            }
+      
+    if (n2 == is.NULL) {
+     Z=(p1-p0)/sqrt((p0*(1-p0))/n1) 
+    }
+     if (alternative == "less") {
+            P<-p[i] <- pnorm(z, lower.tail = TRUE)  # calculates the associated p value
+            hyp <- "p1 < p0"
+        }
+        if (alternative == "greater") {
+            P<-p[i] <- pnorm(z, lower.tail = FALSE)
+            hyp <- "p1 > p0"
+        }
+        if (alternative == "two.tailed") {
+            if (z > 0) {
+                P<-p[i] <- 2 * pnorm(z, lower.tail = FALSE)
+            }
+            if (z < 0) {
+                P<-p[i] <- 2 * pnorm(z, lower.tail = TRUE)
+            }
+      }
+    }
+  }
+
+      alpha=0.05
+      critical.value<-qnorm(1-alpha/2)
+      p1.CI<-((p1*(1-p1))/n1)
+      p2.CI<-((p2*(1-p2))/n2)
+      SE=sqrt(p1.CI+p2.CI)
+      addition<-(p1+p2)+(critical.value*SE)
+      addition
+      subtraction<-(p1+p2)-(critical.value*SE)
+      subtraction
+      CI<-c(subtraction, addition)
+  
+
+      #p is the probability of the sucess where s=1 and failure = 0
+    p<-p1 #isn't that what the probability proportion is?
+    n1 #this is the number of trials run
+    if(n1*p1<5) {
+        "Warning: the input does not allow for normality to be assumed"
+    }
+    if(n1*(1*p1)<5) {"Warning: the input does not allow for normality to be assumed"
+    ##I didn't know which n and p where referred in this particular part of the homework so I used n1 and p1 because that seemed most logical
+    }
+
+return(Z)
+    return(P)
+    return(CI)
+}
+```
+
+
+```{r}
+library(curl)
+library(ggplot2)
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN597_Fall17/KamilarAndCooperData.csv")
+d <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = FALSE)
+head(d)
+```
+```{r}
+plot(data=d, MaxLongevity_m ~ Brain_Size_Species_Mean)
+g<-ggplot(data=d, aes(x=MaxLongevity_m, y=Brain_Size_Species_Mean))
+g<-g+geom_point()
+g<-g+geom_smooth(method="lm", formula=y~x)
+g
+```
+####there were 85 points removed that were non-finite
+
+```{r}
+plot(data=d, log(MaxLongevity_m) ~ log(Brain_Size_Species_Mean))
+g<-ggplot(data=d, aes(x=log(MaxLongevity_m), y=log(Brain_Size_Species_Mean)))
+g<-g+geom_point()
+g<-g+geom_smooth(method="lm", formula=y~x)
+g
+```
+####again, another 85 points were formed for being non-finite
+
+#####what is the function geom_text(mapping = NULL, data = NULL, stat = "identity", position = "identity", ..., parse = FALSE, nudge_x = 0, nudge_y = 0,check_overlap = FALSE, na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
+
+
+#####Identify and interpret the point estimate of the slope (??1??1), as well as the outcome of the test associated with the hypotheses H0: ??1??1 = 0; HA: ??1??1 ??? 0. Also, find a 90 percent CI for the slope (??1??1) parameter.
+
+#####Using your model, add lines for the 90 percent confidence and prediction interval bands on the plot and add a legend to differentiate between the lines.
+
+#####Produce a point estimate and associated 90 percent PI for the longevity of a species whose brain weight is 800 gm. Do you trust the model to predict observations accurately for this value of the explanatory variable? Why or why not?
+
+#####Looking at your two models, which do you think is better? Why?
